@@ -11,12 +11,14 @@
 const { aboutController } = require('./controller/aboutController');
 const { userController } = require('./controller/userController');
 const { tokenController } = require('./controller/tokenController');
+const { checkController } = require('./controller/checkController');
 
 // route list
 const routes = {
     about   : aboutController,
     user    : userController,
     token   : tokenController,
+    check   : checkController,
 };
 
 module.exports = routes;

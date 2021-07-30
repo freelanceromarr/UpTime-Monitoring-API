@@ -1,21 +1,19 @@
 
-const tokengen =(tokenlength)=>{
-    let tokenstr =  typeof tokenlength === 'number' && tokenlength > 0
-   ? tokenlength : false
+const omar={name: "omar", age: "25"}
 
-   if (tokenstr) {
-       const tokenkey = 'abcdefghijklmnopqrstuvxyz0124356789';
-       let output = ''
-       for (let i = 1; i <=tokenstr; i++) {
-          let token = tokenkey.charAt(Math.floor(Math.random() * tokenkey.length))
-          output += token;
-           
-       }
-       return output
-   }
-   else {return false}
-
+if (omar) {
+   const check = (omar)=>{
+    const cehckstudy= typeof omar.data === 'object' && omar.data instanceof Array ? omar.data : []
+    if (cehckstudy) {
+        const checkid = "flsjljlsdlfs"
+        const newdata={checkid,department:"EEE", CGPA: '3.30'}
+        omar.checkstudy = cehckstudy
+        omar.checkstudy.push(checkid)
+    }
+    console.log(omar);
+    }
+    check(omar)
 }
 
 
-console.log( tokengen(20));
+
