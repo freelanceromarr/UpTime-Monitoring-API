@@ -8,43 +8,16 @@
 */
 
 //Dependencies
-const http = require('http');
-const {handelReqRes} = require('./helpers/handleReqRes');
-const environment = require('./environment'); 
-const data = require('./lib/database');
+const server = require('./lib/server')
+const worker = require('./lib/worker')
 // app object - scaffolding
 const app = {}
 
-//write data in database
-data.createfile('test', 'testfile', {name: "omar Faruk", age: 25}, (err) => {
-    console.log(err);
-})
-
-//read data from database
-data.readfile('test', 'testfile', (err, data) => {
-    console.log(err,data);
-})
-
-//update data file
-data.update('test', 'testfile',{name: "omar Faruk", age: 35}, (err, data) => {
-    console.log(err, data);
-})
-
-//file delete 
-data.delete('test', 'testfile', (err, data) => {
-    console.log(err, data);
-})
-
 // Create Server
-app.createServer = ()=>{
-    const server = http.createServer(app.handleRequest);
-    server.listen(environment.port, ()=>{
-        console.log(`Listening at ${environment.port}` );
-    })
+app.init = ()=>{
+    server.init()
+    worker.init()
 }
-// Handle Request Response
 
-app.handleRequest = handelReqRes;
-//Start Server
 
-app.createServer();
+app.init()
